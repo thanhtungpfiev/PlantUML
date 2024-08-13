@@ -1,0 +1,8 @@
+@startuml
+!theme materia
+
+skin rose
+
+Bob -> Alice: Hello!
+
+@enduml

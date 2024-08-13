@@ -1,0 +1,9 @@
+@startuml
+
+skin rose
+skinparam responseMessageBelowArrow true
+
+Bob -> Alice : hello
+Bob <- Alice : ok
+
+@enduml

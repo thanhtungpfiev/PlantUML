@@ -1,0 +1,3 @@
+@startuml
+  rectangle "Use an icon: <size:40><&heart></size>"
+@enduml

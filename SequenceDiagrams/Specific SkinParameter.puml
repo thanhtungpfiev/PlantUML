@@ -1,0 +1,20 @@
+@startuml
+
+skin rose
+
+' Bob -> Alice : hello
+' Alice -> Bob : ok
+
+' skinparam lifelineStrategy nosolid
+' Bob -> Alice : hello
+' Alice -> Bob : ok
+
+' skinparam lifelineStrategy solid
+' Bob -> Alice : hello
+' Alice -> Bob : ok
+
+skinparam style strictuml
+Bob -> Alice : hello
+Alice -> Bob : ok
+
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+
+skin rose
+mainframe This is a **mainframe**
+Alice->Bob : Hello
+
+@enduml

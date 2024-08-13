@@ -1,0 +1,9 @@
+@startuml
+
+skin rose
+skinparam sequenceMessageAlign right
+
+Bob -> Alice : Request
+Alice -> Bob : Response
+
+@enduml
