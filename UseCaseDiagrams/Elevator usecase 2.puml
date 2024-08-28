@@ -1,0 +1,52 @@
+@startuml
+
+skin rose
+
+left to right direction
+
+package "Elevator" {
+    usecase "Call Elevator" as UC_Call_Elevator
+    usecase "Select Floor" as UC_Select_Floor
+    usecase "Ride Elevator" as UC_Ride_Elevator
+    usecase "Operate Doors" as UC_Operate_Doors
+    usecase "Trigger Emergency" as UC_Trigger_Emergency
+
+    usecase "Inspect Elevator" as UC_Inspect_Elevator
+    usecase "Service Elevator" as UC_Service_Elevator
+    usecase "Repair Elevator" as UC_Repair_Elevator
+}
+
+actor User
+actor Technician
+
+User -> UC_Call_Elevator
+User -> UC_Select_Floor
+User -> UC_Ride_Elevator
+User -> UC_Operate_Doors
+User -> UC_Trigger_Emergency
+
+UC_Call_Elevator <- Technician
+UC_Select_Floor <- Technician
+UC_Ride_Elevator <- Technician
+UC_Operate_Doors <- Technician
+UC_Trigger_Emergency <- Technician
+UC_Inspect_Elevator <- Technician
+UC_Service_Elevator <- Technician
+UC_Repair_Elevator <- Technician
+
+' Force positioning
+User -[hidden]-> UC_Call_Elevator
+User -[hidden]-> UC_Select_Floor
+User -[hidden]-> UC_Ride_Elevator
+User -[hidden]-> UC_Operate_Doors
+User -[hidden]-> UC_Trigger_Emergency
+
+UC_Call_Elevator <-[hidden]- Technician
+UC_Select_Floor <-[hidden]- Technician
+UC_Ride_Elevator <-[hidden]- Technician
+UC_Operate_Doors <-[hidden]- Technician
+UC_Trigger_Emergency <-[hidden]- Technician
+UC_Inspect_Elevator <-[hidden]- Technician
+UC_Service_Elevator <-[hidden]- Technician
+UC_Repair_Elevator <-[hidden]- Technician
+@enduml

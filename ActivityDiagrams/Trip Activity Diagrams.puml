@@ -1,0 +1,32 @@
+@startuml
+
+skin rose
+
+start
+:Create New Trip;
+:Type Name;
+
+while (Trip name taken?)
+    :Prompt user;
+    if (Enter new name) then (yes)
+    else (no)
+        :Cancel Trip Creation;
+        stop
+    endif
+endwhile
+
+:Show New Trip Dialog;
+:Fill in Trip Data;
+:User Pressed Save;
+
+fork
+    :Save Trip To Local DB;
+fork again
+    :Upload to Server;
+end fork
+
+:Notify user;
+
+stop
+
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+
+skin rose
+
+:Hello world;
+:This is defined on
+several **lines**;
+
+@enduml

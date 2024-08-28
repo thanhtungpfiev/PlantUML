@@ -1,0 +1,54 @@
+@startuml
+skinparam class {
+    BackgroundColor<<boss>> YellowGreen
+    BackgroundColor<<manager>> LightSkyBlue
+    BackgroundColor<<staff>> LightYellow
+}
+
+class CEO <<boss>> {
+}
+
+class CTO <<manager>> {
+}
+
+class CFO <<manager>> {
+}
+
+class COO <<manager>> {
+}
+
+class EngineeringManager <<manager>> {
+}
+
+class FinanceManager <<manager>> {
+}
+
+class OperationsManager <<manager>> {
+}
+
+class Developer1 <<staff>> {
+}
+
+class Developer2 <<staff>> {
+}
+
+class Accountant1 <<staff>> {
+}
+
+class Accountant2 <<staff>> {
+}
+
+CEO -down-> CTO
+CEO -down-> CFO
+CEO -down-> COO
+
+CTO -down-> EngineeringManager
+EngineeringManager -down-> Developer1
+EngineeringManager -down-> Developer2
+
+CFO -down-> FinanceManager
+FinanceManager -down-> Accountant1
+FinanceManager -down-> Accountant2
+
+COO -down-> OperationsManager
+@enduml

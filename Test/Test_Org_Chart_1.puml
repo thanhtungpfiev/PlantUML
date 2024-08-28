@@ -1,0 +1,57 @@
+@startuml
+skin rose
+
+' Define the nodes
+CEO : John Doe
+DeputyDirector : Deputy Director
+OfficeWorkplaceSolutions : Office of Workplace Solutions
+OfficePublicRelations : Office of Public Relations
+CounselDivision : Counsel Division
+Cooperation : Cooperation
+AnalysisDivision : Analysis Division
+OfficeGlobalSupport : Office of Global Support
+OfficeBacktrackAnalysis : Office of Backtrack Analysis
+DepartmentHeuristicSupport : Department of Heuristic Support
+OfficeIntelligenceSupport : Office of Intelligence Support
+ITDivision : IT Division
+DatabaseAdministration : Database Administration
+OfficeTechnologyResearch : Office of Technology Research
+OfficeDataServices : Office of Data Services
+ManagementProgramsDivision : Management Programs Division
+OfficeFinancialManagement : Office of Financial Management
+OfficeHumanResources : Office of Human Resources
+OfficeManagement : Office of Management
+OfficeTrainingServices : Office of Training Services
+RegulatoryEnforcementDivision : Regulatory and Enforcement Division
+OfficeRegulatoryPolicy : Office of Regulatory Policy
+OfficeCompliance : Office Compliance
+OfficeEnforcement : Office of Enforcement
+OfficeRegulatorySupport : Office of Regulatory Support
+
+' Define the relationships
+CEO --> DeputyDirector
+DeputyDirector --> OfficePublicRelations
+DeputyDirector --> OfficeWorkplaceSolutions
+DeputyDirector --> CounselDivision
+CEO --> Cooperation
+DeputyDirector --> AnalysisDivision
+DeputyDirector --> RegulatoryEnforcementDivision
+AnalysisDivision --> OfficeGlobalSupport
+OfficeGlobalSupport --> OfficeBacktrackAnalysis
+OfficeBacktrackAnalysis --> DepartmentHeuristicSupport
+DepartmentHeuristicSupport --> OfficeIntelligenceSupport
+ITDivision --> DatabaseAdministration
+DatabaseAdministration --> OfficeTechnologyResearch
+OfficeTechnologyResearch --> OfficeDataServices
+ManagementProgramsDivision --> OfficeFinancialManagement
+OfficeFinancialManagement --> OfficeHumanResources
+OfficeHumanResources --> OfficeManagement
+OfficeManagement --> OfficeTrainingServices
+RegulatoryEnforcementDivision --> OfficeRegulatoryPolicy
+OfficeRegulatoryPolicy --> OfficeCompliance
+OfficeCompliance --> OfficeEnforcement
+OfficeEnforcement --> OfficeRegulatorySupport
+DeputyDirector --> ITDivision
+DeputyDirector --> ManagementProgramsDivision
+
+@enduml

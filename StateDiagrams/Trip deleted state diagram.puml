@@ -1,0 +1,13 @@
+@startuml
+
+skin rose
+
+hide empty description
+
+[*] --> Uninitialized
+Uninitialized --> Saved : save\n[mandatory fields filled]
+Saved --> Completed
+Completed --> [*]: delete
+
+
+@enduml

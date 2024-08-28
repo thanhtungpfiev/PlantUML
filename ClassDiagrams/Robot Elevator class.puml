@@ -1,0 +1,13 @@
+@startuml
+
+skin rose
+
+class ElevatorMaintenanceUnit {
+    - identifier: String
+
+    + diagnose()
+    + service()
+    + repair()
+}
+
+@enduml

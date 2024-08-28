@@ -1,0 +1,26 @@
+@startuml
+
+left to right direction
+
+skin rose
+
+actor Guest
+
+package "Elevator" {
+    usecase "Using" as UC_Using
+    usecase "Managing" as UC_Managing
+    usecase "Maintaining" as UC_Maintaining
+}
+
+actor Admin
+actor Maintainer
+
+Guest -> UC_Using
+UC_Managing <- Admin
+UC_Maintaining <- Maintainer
+
+' Force positioning
+Guest -[hidden]-> UC_Using
+UC_Managing -[hidden]-> Maintainer
+UC_Managing -[hidden]-> Admin
+@enduml
