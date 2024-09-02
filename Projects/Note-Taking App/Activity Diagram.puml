@@ -1,0 +1,27 @@
+@startuml
+skin rose
+
+start
+
+:Create New Note;
+repeat
+    :Enter Note Title;
+    if (valid title?) then (yes)
+        :Show Note Entry Dialog;
+        :Fill In Note Data;
+        :Save Note;
+        fork
+            :Save Locally;
+        fork again
+            :Sync To Cloud;
+        end fork
+        :Notify User;
+        break
+    else (no)
+        :Prompt New Title;
+    endif
+repeat while () is (Ok) not (Cancel)
+
+stop
+
+@enduml

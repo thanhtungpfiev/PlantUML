@@ -1,0 +1,63 @@
+@startuml
+
+skin rose
+
+left to right direction
+
+class Note {
+    - id: Int
+    - text: String
+    - photos: List<Image>
+    - videos: List<Video>
+    --
+    + getId(): Int
+    + addImage(image: Image)
+    + getImages(): List<Image>
+    + addVideo(video: Video)
+    + getVideos(): List<Video>
+}
+
+class Image {
+}
+
+class Video {
+}
+
+class SecureNote {
+    - passwordHash: String
+}
+
+class Crypto {
+    + hash(password: String): String
+}
+
+interface LocalPersistence {
+    + getNotes(): List<Note>
+    + saveNote(note: Note)
+    + editNote(note: Note)
+    + deleteNote(note: Note)
+}
+
+class FileManager {
+}
+
+interface AppNetworkInterface {
+    + fetchNotes(): List<Note>
+    + uploadNote(note: Note)
+    + refreshNote(note: Note)
+    + removeNote(note: Note)
+}
+
+class CloudSyncService {
+}
+
+Note "1" *-- "1..*" Image
+Note "1" *-- "1..*" Video
+SecureNote --|> Note
+SecureNote ..> Crypto : Use
+FileManager ..> LocalPersistence : Use
+CloudSyncService ..> AppNetworkInterface : Use
+AppNetworkInterface ..> Note : Use
+LocalPersistence ..> Note : Use
+
+@enduml

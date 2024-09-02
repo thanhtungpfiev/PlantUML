@@ -1,0 +1,31 @@
+@startuml
+
+skin rose
+
+autonumber
+
+participant "aButton" as aButton
+participant "aController" as aController
+participant "aNote" as aNote
+participant "aFileManger" as aFileManager
+participant "aCloudSyncService" as aCloudSyncService
+
+aButton -> aController: onCreateNote
+activate aController
+create aNote
+aController -> aNote: <<create>>
+deactivate aController
+
+aButton -> aController: onSaveNote
+activate aController
+aController -> aFileManager: saveNote(note: aNote) <<async>>
+activate aFileManager
+aController -> aCloudSyncService: uploadNote(note: aNote) <<async>>
+activate aCloudSyncService
+deactivate aController
+aFileManager --> aController: saveResult
+deactivate aFileManager
+aCloudSyncService --> aController: uploadResult
+deactivate aCloudSyncService
+
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+
+skin rose
+
+state "New" as New
+state "Archived" as Archived
+state "Unsaved Changes" as Unsaved_Changes
+state "Saved And Upload Pending" as Saved_And_Upload_Pending
+state "Persisted And Uploaded" as Persisted_And_Uploaded
+state "Uploaded" as Uploaded
+state "Persisted" as Persisted
+state "Save Pending" as Save_Pending
+state "Upload Pending" as Upload_Pending
+
+[*] --> New: created
+
+New --> Unsaved_Changes: details added
+
+Archived -down-> Unsaved_Changes: app started
+Unsaved_Changes -up-> Archived: app terminated
+
+Unsaved_Changes -right-> Saved_And_Upload_Pending: user pressed save
+Saved_And_Upload_Pending -up-> Unsaved_Changes: save and upload failed
+
+Unsaved_Changes --> [*]: cancelled
+
+Saved_And_Upload_Pending -down-> Persisted_And_Uploaded: saved and uploaded
+
+Persisted_And_Uploaded --> [*]
+
+Saved_And_Upload_Pending -left-> Uploaded: uploaded, save failed
+Uploaded --> Save_Pending: retry save
+Uploaded --> [*]: save failed [attempt# > 3]
+
+Save_Pending --> Persisted_And_Uploaded: saved
+Save_Pending --> Uploaded: save failed [attempt# <= 3]
+
+Saved_And_Upload_Pending -right-> Persisted: saved, upload failed
+Persisted --> Upload_Pending: retry upload
+Persisted --> [*]: upload failed [attempt# > 3]
+
+Upload_Pending --> Persisted_And_Uploaded: uploaded
+Upload_Pending --> Persisted: save failed [attempt# <= 3]
+
+@enduml

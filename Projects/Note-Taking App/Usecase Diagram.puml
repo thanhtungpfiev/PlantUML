@@ -1,0 +1,37 @@
+@startuml
+skin rose
+
+' Define actors
+left to right direction
+actor AppUser as AppUser
+rectangle "Cloud Services" {
+    actor Cloud <<Cloud>>
+}
+
+' Define use cases
+usecase "Create Note" as UC_CreateNote
+usecase "Edit Note" as UC_EditNote
+usecase "Attach Photo" as UC_AttachPhoto
+usecase "Attach Video" as UC_AttachVideo
+usecase "Protect Note with Password" as UC_ProtectNote
+
+' Define relationships
+AppUser ---> UC_CreateNote
+AppUser ---> UC_EditNote
+AppUser ---> UC_AttachPhoto
+AppUser ---> UC_AttachVideo
+AppUser ---> UC_ProtectNote
+
+UC_CreateNote  <--- Cloud
+UC_EditNote    <--- Cloud
+UC_AttachPhoto <--- Cloud
+UC_AttachVideo <--- Cloud
+UC_ProtectNote <--- Cloud
+
+' Apply color to Cloud actor
+skinparam actor {
+    BackgroundColor<<Cloud>> blue
+    BorderColor<<Cloud>> blue
+}
+
+@enduml
